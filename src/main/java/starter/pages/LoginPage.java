@@ -45,25 +45,31 @@ public class LoginPage extends PageObject {
     //validate field email empty
     @FindBy(xpath ="//div[@class='modal-signin p-5 modal-body']//div//div[1]//div[1]//div[1]")
     WebElement AlertFieldEmailEmpty;
-    public void validateAlertFieldEmailEmpty(){
+    public void validateAlertFieldEmailEmpty(String message){
         element(AlertFieldEmailEmpty).waitUntilVisible();
-        Assert.assertEquals("cannot be blank!",AlertFieldEmailEmpty.getText());
+        Assert.assertEquals(message,AlertFieldEmailEmpty.getText());
     }
 
     //validate field password empty
     @FindBy(xpath ="//div[@role='dialog']//div[2]//div[1]//div[1]")
     WebElement AlertFieldPasswordEmpty;
-    public void validateAlertFieldPasswordEmpty(){
+    public void validateAlertFieldPasswordEmpty(String message){
         element(AlertFieldPasswordEmpty).waitUntilVisible();
-        Assert.assertEquals("cannot be blank",AlertFieldPasswordEmpty.getText());
+        Assert.assertEquals(message,AlertFieldPasswordEmpty.getText());
     }
 
-    //Validate Login Success
-    @FindBy(id = "//div[@class='swal-text']")
-    WebElement PopUpLoginSuccess;
-    public void validateLoginSuccess(){
-        waitFor(PopUpLoginSuccess);
-        Assert.assertEquals("Login Success",PopUpLoginSuccess.getText());
+    //Validate Login
+    @FindBy(xpath = "//div[@class='swal-text']")
+    WebElement PopUpMessageLogin;
+    //validate message login success
+    public void validateLoginSuccess(String message){
+        element(PopUpMessageLogin).waitUntilVisible();
+        Assert.assertEquals(message,PopUpMessageLogin.getText());
+    }
+    //validate message login failed
+    public void validateLoginFailed(String message){
+        element(PopUpMessageLogin).waitUntilVisible();
+        Assert.assertEquals(message,PopUpMessageLogin.getText());
     }
 
 

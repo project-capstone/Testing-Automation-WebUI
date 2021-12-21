@@ -50,15 +50,32 @@ public class LoginSteps extends BaseTest {
 
     @Then("I am success login")
     public void iAmSuccessLogin() {
-        //login.validateAlertFieldEmailEmpty();
+
+    }
+
+    @And("Show success message {string}")
+    public void showSuccessMessage(String message) {
+        login.validateLoginSuccess(message);
     }
 
     @Then("I am failed login")
     public void iAmFailedLogin() {
     }
 
-    @And("Show error message field email cannot be blank")
-    public void showErrorMessageFieldEmailCannotBeBlank() {
-        login.validateAlertFieldEmailEmpty();
+    @And("Show failed message {string}")
+    public void showFailedMessage(String message) {
+        login.validateLoginFailed(message);
     }
+
+    @And("Show error message in field email {string}")
+    public void showErrorMessageInFieldEmail(String message) {
+        login.validateAlertFieldEmailEmpty(message);
+
+    }
+
+    @And("Show error message in field password {string}")
+    public void showErrorMessageInFieldPassword(String message) {
+        login.validateAlertFieldPasswordEmpty(message);
+    }
+
 }
