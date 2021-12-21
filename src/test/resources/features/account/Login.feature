@@ -7,8 +7,8 @@ Feature: Login Functionality
   #Success TC_1 tanya validasi pesan action setelah login
   Scenario: I am login with valid email and password
     Given I am open login page in barengin
-    When I am enter valid email "user@example.com"
-    And I am enter valid password "user123"
+    When I am enter valid email "wahyu@gmail.com"
+    And I am enter valid password "wahyu123"
     And I am click button SignIn
     Then I am success login
 
@@ -29,7 +29,7 @@ Feature: Login Functionality
   #failed TC_3
   Scenario Outline: I am login with valid email and invalid password
     Given I am open login page in barengin
-    When I am enter valid email "user@example.com"
+    When I am enter valid email "wahyu@gmail.com"
     And I am enter invalid password "<password>"
     And I am click button SignIn
     Then I am failed login
@@ -56,9 +56,27 @@ Feature: Login Functionality
       | @gmail.com                | Password   |
       | whyf@gmadi.fdsa           | PASSWORD   |
 
-  @test #Success TC_1 contoh tanya ini validasi alert in field
-  Scenario: I am login with empty email and password
+  #failed TC_5 contoh tanya ini validasi alert in field
+  Scenario: I am login with empty email and valid password
     Given I am open login page in barengin
-    When I am enter valid password "user123"
+    When I am left email field blank
+    And I am enter valid password "user123"
     And I am click button SignIn
-    Then I am success login
+    Then I am failed login
+    And Show error message field email cannot be blank
+
+  #Success TC_6 contoh tanya ini validasi alert in field
+  Scenario: I am login with valid email and empty password
+    Given I am open login page in barengin
+    When I am enter valid email "wahyu@gmail.com"
+    And I am left password field blank
+    And I am click button SignIn
+    Then I am failed login
+
+  #Success TC_7 contoh tanya ini validasi alert in field
+  Scenario: I am login with empty email and empty password
+    Given I am open login page in barengin
+    When I am left email field blank
+    And I am left password field blank
+    And I am click button SignIn
+    Then I am failed login

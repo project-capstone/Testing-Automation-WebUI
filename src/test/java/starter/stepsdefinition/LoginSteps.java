@@ -24,6 +24,11 @@ public class LoginSteps extends BaseTest {
         login.InputEmail(email);
     }
 
+    @When("I am left email field blank")
+    public void iAmLeftEmailFieldBlank() {
+
+    }
+
     @And("I am enter valid password {string}")
     public void iAmEnterValidPassword(String password) {
         login.InputPassword(password);
@@ -34,6 +39,10 @@ public class LoginSteps extends BaseTest {
         login.InputPassword(password);
     }
 
+    @And("I am left password field blank")
+    public void iAmLeftPasswordFieldBlank() {
+    }
+
     @And("I am click button SignIn")
     public void iAmClickButtonSignIn() {
         login.clickButtonSignIn();
@@ -41,12 +50,15 @@ public class LoginSteps extends BaseTest {
 
     @Then("I am success login")
     public void iAmSuccessLogin() {
-        login.validateAlertFieldEmailEmpty();
+        //login.validateAlertFieldEmailEmpty();
     }
 
     @Then("I am failed login")
     public void iAmFailedLogin() {
     }
 
-
+    @And("Show error message field email cannot be blank")
+    public void showErrorMessageFieldEmailCannotBeBlank() {
+        login.validateAlertFieldEmailEmpty();
+    }
 }

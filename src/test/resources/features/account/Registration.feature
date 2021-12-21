@@ -6,3 +6,4 @@ Feature: Registration
 
   Scenario: Check all the required fields with filling valid data
     Given I am open registration page in barengin
+    When I am click button

@@ -42,10 +42,20 @@ public class LoginPage extends PageObject {
         ButtonSignIn.click();
     }
 
-    @FindBy(xpath ="//input[@placeholder='Email']")
+    //validate field email empty
+    @FindBy(xpath ="//div[@class='modal-signin p-5 modal-body']//div//div[1]//div[1]//div[1]")
     WebElement AlertFieldEmailEmpty;
     public void validateAlertFieldEmailEmpty(){
         element(AlertFieldEmailEmpty).waitUntilVisible();
+        Assert.assertEquals("cannot be blank!",AlertFieldEmailEmpty.getText());
+    }
+
+    //validate field password empty
+    @FindBy(xpath ="//div[@role='dialog']//div[2]//div[1]//div[1]")
+    WebElement AlertFieldPasswordEmpty;
+    public void validateAlertFieldPasswordEmpty(){
+        element(AlertFieldPasswordEmpty).waitUntilVisible();
+        Assert.assertEquals("cannot be blank",AlertFieldPasswordEmpty.getText());
     }
 
     //Validate Login Success
