@@ -42,7 +42,14 @@ public class LoginPage extends PageObject {
         ButtonSignIn.click();
     }
 
-    //validate field email empty
+    //Click Button Cancel
+    @FindBy(xpath = "//button[normalize-space()='Cancel']")
+    WebElement ButtonCancel;
+    public void clickButtonCancel(){
+        ButtonCancel.click();
+    }
+
+    //validate field email
     @FindBy(xpath ="//div[@class='modal-signin p-5 modal-body']//div//div[1]//div[1]//div[1]")
     WebElement AlertFieldEmailEmpty;
     public void validateAlertFieldEmailEmpty(String message){
@@ -50,7 +57,7 @@ public class LoginPage extends PageObject {
         Assert.assertEquals(message,AlertFieldEmailEmpty.getText());
     }
 
-    //validate field password empty
+    //validate field password
     @FindBy(xpath ="//div[@role='dialog']//div[2]//div[1]//div[1]")
     WebElement AlertFieldPasswordEmpty;
     public void validateAlertFieldPasswordEmpty(String message){

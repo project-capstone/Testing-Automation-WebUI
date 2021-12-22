@@ -117,5 +117,10 @@ Feature: Login Functionality
       | @gmail.com                | Poss     |
       | wahyunusantara48gmail.com | PA$SS    |
 
+  Scenario: I didn't log in by clicking the cancel button
+    Given I am open login page in barengin
+    When I am click button cancel in login page
+    Then I am success cancel
+
     #auto accept pop up ok
     #kalau double kata login

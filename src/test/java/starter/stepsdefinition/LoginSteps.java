@@ -62,6 +62,15 @@ public class LoginSteps extends BaseTest {
     public void iAmFailedLogin() {
     }
 
+    @When("I am click button cancel in login page")
+    public void iAmClickButtonCancelInLoginPage() {
+        login.clickButtonCancel();
+    }
+
+    @Then("I am success cancel")
+    public void iAmSuccessCancel() {
+    }
+
     @And("Show failed message {string}")
     public void showFailedMessage(String message) {
         login.validateLoginFailed(message);
@@ -77,5 +86,7 @@ public class LoginSteps extends BaseTest {
     public void showErrorMessageInFieldPassword(String message) {
         login.validateAlertFieldPasswordEmpty(message);
     }
+
+
 
 }
