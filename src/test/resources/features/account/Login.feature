@@ -83,14 +83,14 @@ Feature: Login Functionality
       | wahyunusantara48gmailcom  |
       | @gmail.com                |
 
-  #failed TC_9 sudah berhasil dirun namun ada bug di example 4 dan 5
+  @TC_9 #failed sudah berhasil dirun namun ada bug di example 4 dan 5
   Scenario Outline: I am login with valid email and invalid format password
     Given I am open login page in barengin
     When I am enter valid email "wahyu@gmail.com"
     And I am enter invalid password "<password>"
     And I am click button SignIn
     Then I am failed login
-    And Show error message in field password "comment is too short!"
+    And Show error message in field password "password is too short!"
     Examples:
       | password |
       | p        |
@@ -99,7 +99,7 @@ Feature: Login Functionality
       | Pass     |
       | passs    |
 
-  #failed TC_10 sudah berhasil dirun namun ada bug di example 4 dan 5
+  @TC_10 #failed  sudah berhasil dirun namun ada bug di example 4 dan 5
   Scenario Outline: I am login with invalid format email and password
     Given I am open login page in barengin
     When I am enter invalid email "<email>"
@@ -107,7 +107,7 @@ Feature: Login Functionality
     And I am click button SignIn
     Then I am failed login
     And Show error message in field email "email is not valid!"
-    And Show error message in field password "comment is too short!"
+    And Show error message in field password "password is too short!"
 
     Examples:
       | email                     | password |
