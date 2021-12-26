@@ -92,18 +92,16 @@ Feature: Product Functionality
     Then I am success create group product
     And Show success message "success add group product" for create new group
 
-  #TC_11 #customer ingin menambahkan grup product ketika ada grup product yang belum full
+  @test #TC_11 #customer ingin menambahkan grup product ketika ada grup product yang belum full
   Scenario: customer adds a new group product but there are incomplete group products
     Given I am login as customer
-    When I am click menu product
-    And I am choose product with click button more info for create group product
+    When I am click menu product to Product
     Then I am click button create new group is disable
 
-  @test #TC_12 #user tidak login namun ingin menambahkan group product
-  Scenario: customer adds a new group product but there are incomplete group products
+  #TC_12 #user tidak login namun ingin menambahkan group product
+  Scenario: visitor adds a new group product but there are incomplete group products
     Given I am not login
-    When I am click menu product
-    And I am choose product with click button more info for create group product
+    When I am click menu product to Product
     Then I am click button create new group is disable
 
 

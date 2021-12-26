@@ -213,6 +213,11 @@ public class ProductSteps extends BaseTest {
         product.open();
     }
 
+    @When("I am click menu product to Product")
+    public void iAmClickMenuProductToProduct() {
+        product.clickCobaaja();
+    }
+
     //click button more info produk yang dipilih
     @And("I am choose product with click button more info for create group product")
     public void iAmChooseProductWithClickButtonMoreInfoForCreateGroupProduct() {
@@ -223,20 +228,22 @@ public class ProductSteps extends BaseTest {
     public void iAmClickButtonCreateNewGroup() {
         product.clickButtonCreateNewGroup();
     }
+
     //click button create new group is disable
     @Then("I am click button create new group is disable")
     public void iAmClickButtonCreateNewGroupIsDisable() {
+        product.clickButtonCreateNewGroupDisable();
     }
 
     @Then("I am success create group product")
     public void iAmSuccessCreateGroupProduct() {
     }
+
     //validasi pop up message ketika create new group berhasil
     @And("Show success message {string} for create new group")
     public void showSuccessMessageForCreateNewGroup(String message) {
         product.validateCreateNewGroupSuccess(message);
         product.clickButtonOKCreateNewGroup();
     }
-
 
 }

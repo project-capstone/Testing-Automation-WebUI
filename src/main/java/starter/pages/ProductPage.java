@@ -297,6 +297,7 @@ public class ProductPage extends PageObject {
     }
     //click button create new group is disable
     public void clickButtonCreateNewGroupDisable(){
+        buttonCreateNewGroup.sendKeys(Keys.PAGE_UP);
         element(buttonCreateNewGroup).waitUntilVisible();
         buttonCreateNewGroup.isDisabled();
     }
@@ -315,6 +316,14 @@ public class ProductPage extends PageObject {
     WebElement ButtonOKCreateNewGroup;
     public void clickButtonOKCreateNewGroup(){
         ButtonOKCreateNewGroup.click();
+    }
+
+    @FindBy(xpath = "//div[3]//div[1]//div[1]//button[1]")
+    WebElementFacade Cobaaja;
+    public void clickCobaaja(){
+        Cobaaja.sendKeys(Keys.PAGE_DOWN);
+        element(Cobaaja).waitUntilVisible();
+        Cobaaja.click();
     }
 
 
