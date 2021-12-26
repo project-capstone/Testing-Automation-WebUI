@@ -136,6 +136,32 @@ public class ProductSteps extends BaseTest {
         product.validateAlertFieldFotoEmpty(message);
     }
 
+    //**********PUT PRODUCT********************//
+
+    @And("I am click icon button update product")
+    public void iAmClickIconButtonUpdateProduct() {
+        product.clickButtonIconUpdateProduct();
+    }
+
+    @And("I am click button save changes")
+    public void iAmClickButtonSaveChanges() {
+        product.clickButtonSaveChanges();
+    }
+
+    @And("I am click button YES")
+    public void iAmClickButtonYES() {
+        product.clickButtonYES();
+    }
+
+    @Then("I am success update product")
+    public void iAmSuccessUpdateProduct() {
+    }
+
+    @And("Show success message {string} for update product")
+    public void showSuccessMessageForUpdateProduct(String message) {
+        product.validateUpdateSuccess(message);
+    }
+
     //********DELETE PRODUCT**********//
 
     //click button more info di product yang ingin dihapus
@@ -165,5 +191,52 @@ public class ProductSteps extends BaseTest {
     public void showSuccessMessageForDeleteProduct(String message) {
         product.validateDeleteSuccess(message);
     }
+
+    //***********GET GROUP PRODUCT******************//
+
+    //click button more info untuk melihat group product
+    @And("I am choose product with click button more info for get group product")
+    public void iAmChooseProductWithClickButtonMoreInfoForGetGroupProduct() {
+        product.clickButtonMoreInfoGroupProduct();
+    }
+
+
+    @Then("Show group product page")
+    public void showGroupProductPage() {
+        product.validateGroupProduct();
+    }
+
+    //********** CREATE GROUP PRODUCT **************//
+
+    @Given("I am not login")
+    public void iAmNotLogin() {
+        product.open();
+    }
+
+    //click button more info produk yang dipilih
+    @And("I am choose product with click button more info for create group product")
+    public void iAmChooseProductWithClickButtonMoreInfoForCreateGroupProduct() {
+        product.clickButtonMoreInfoCreateGroupProduct();
+    }
+    //click button create new group product
+    @And("I am click button create new group")
+    public void iAmClickButtonCreateNewGroup() {
+        product.clickButtonCreateNewGroup();
+    }
+    //click button create new group is disable
+    @Then("I am click button create new group is disable")
+    public void iAmClickButtonCreateNewGroupIsDisable() {
+    }
+
+    @Then("I am success create group product")
+    public void iAmSuccessCreateGroupProduct() {
+    }
+    //validasi pop up message ketika create new group berhasil
+    @And("Show success message {string} for create new group")
+    public void showSuccessMessageForCreateNewGroup(String message) {
+        product.validateCreateNewGroupSuccess(message);
+        product.clickButtonOKCreateNewGroup();
+    }
+
 
 }

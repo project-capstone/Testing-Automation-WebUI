@@ -32,11 +32,11 @@ Feature: Product Functionality
   Scenario: admin want to post new product
     Given I am login as admin
     And I am already in add new product page
-    When I am enter product name "IQIYI"
-    And I am enter detail product "aplikasi untuk nonton anime dan drama korea"
+    When I am enter product name "Nord VPN"
+    And I am enter detail product "NordVPN adalah penyedia layanan jaringan pribadi virtual."
     And I am enter limit 2 orang
-    And I am enter price product 1000
-    And I am upload image product "gambar/iqiyi.jpg"
+    And I am enter price product 120000
+    And I am upload image product "gambar/nordvpn.png"
     And I am click button add product
     Then I am success add product
     And Show success message "Success Operation" for add new product
@@ -53,11 +53,20 @@ Feature: Product Functionality
     And Show error message in field price detail "cannot be blank!"
     And Show error message in field product picture "cannot be blank!"
 
+  #TC_7 #admin ingin mengubah informasi produk yang diinginkan
+  Scenario: admin want to update product
+    Given I am login as admin
+    When I am click menu product
+    And I am choose product with click button more info
+    And I am click icon button update product
+    And I am enter product name "Disney+ Hotstar"
+    And I am enter detail product "Disney+ Hotstar memudahkan Anda menemukan variety show, drama TV, animasi, dan film terpopuler!"
+    And I am click button save changes
+    And I am click button YES
+    Then I am success update product
+    And Show success message "Success Operation" for update product
 
-
-    #And Show error message in field product name ""
-
-  #TC_11 #admin ingin delte product
+  #TC_8 #admin ingin delete product
   Scenario: admin want to delete product
     Given I am login as admin
     When I am click menu product
@@ -66,6 +75,38 @@ Feature: Product Functionality
     And I am click button OK delete product
     Then I am success delete product
     And show success message "Success Operation" for delete product
+
+  #TC_9 #customer ingin lihat group product dari sebuah product
+  Scenario: customer want to see group product
+    Given I am login as customer
+    When I am click menu product
+    And I am choose product with click button more info for get group product
+    Then Show group product page
+
+  #TC_10 #customer ingin lihat group product dari
+  Scenario: customer want to add new group product
+    Given I am login as customer
+    When I am click menu product
+    And I am choose product with click button more info for create group product
+    And I am click button create new group
+    Then I am success create group product
+    And Show success message "success add group product" for create new group
+
+  #TC_11 #customer ingin menambahkan grup product ketika ada grup product yang belum full
+  Scenario: customer adds a new group product but there are incomplete group products
+    Given I am login as customer
+    When I am click menu product
+    And I am choose product with click button more info for create group product
+    Then I am click button create new group is disable
+
+  @test #TC_12 #user tidak login namun ingin menambahkan group product
+  Scenario: customer adds a new group product but there are incomplete group products
+    Given I am not login
+    When I am click menu product
+    And I am choose product with click button more info for create group product
+    Then I am click button create new group is disable
+
+
 
 
 

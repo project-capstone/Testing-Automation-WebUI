@@ -7,6 +7,8 @@ import net.serenitybdd.core.pages.WebElementFacade;
 import org.junit.Assert;
 import org.openqa.selenium.*;
 
+import javax.xml.xpath.XPath;
+
 public class ProductPage extends PageObject {
 
     //Click Icon Account
@@ -61,6 +63,7 @@ public class ProductPage extends PageObject {
     WebElement MenuProduct;
     public void clickMenuProduct(){
         MenuProduct.click();
+        MenuProduct.sendKeys(Keys.PAGE_DOWN);
     }
 
     //validate get all product displayed
@@ -95,6 +98,7 @@ public class ProductPage extends PageObject {
     @FindBy(id = "floatingProductName")
     WebElement FieldProductName;
     public void InputProductName(String nameproduct){
+        FieldProductName.clear();
         FieldProductName.sendKeys(nameproduct);
     }
 
@@ -103,6 +107,7 @@ public class ProductPage extends PageObject {
     WebElement FieldDetailProduct;
     public void InputDetailPoduct(String detailproduct){
         FieldDetailProduct.sendKeys(Keys.PAGE_DOWN);
+        FieldDetailProduct.clear();
         FieldDetailProduct.sendKeys(detailproduct);
     }
 
@@ -188,17 +193,48 @@ public class ProductPage extends PageObject {
         Assert.assertEquals(message,AlertFieldFotoEmpty.getText());
     }
 
+    //************PUT PRODUCT****************//
+
+    //click icon button edit product
+    @FindBy(css = "div.BaseContainer div.detail-data.mt-5.container:nth-child(4) div.row:nth-child(1) div.text-center.col-md-12 div.row h3:nth-child(1) a:nth-child(1) > svg:nth-child(1)")
+    WebElement buttonIconUpdateProduct;
+    public void clickButtonIconUpdateProduct(){
+        //buttonIconUpdateProduct.sendKeys(Keys.PAGE_DOWN);
+        //element(buttonIconUpdateProduct).waitUntilVisible();
+        buttonIconUpdateProduct.click();
+    }
+    //click button save changes
+    @FindBy(xpath = "//button[normalize-space()='Save Change']")
+    WebElement buttonSaveChanges;
+    public void clickButtonSaveChanges(){
+        buttonSaveChanges.click();
+    }
+    //click button YES
+    @FindBy(xpath = "//button[normalize-space()='Yes']")
+    WebElement buttonYES;
+    public void clickButtonYES(){
+        buttonYES.click();
+    }
+
+    //Validate update Success
+    @FindBy(xpath = "//div[@class='swal-text']")
+    WebElement PopUpMessageUpdate;
+    //validate message update success
+    public void validateUpdateSuccess(String message){
+        element(PopUpMessageUpdate).waitUntilVisible();
+        Assert.assertEquals(message,PopUpMessageUpdate.getText());
+    }
 
     //***********DELETE PRODUCT**************//
 
-    @FindBy(xpath = "//div[9]//div[1]//div[1]//button[1]") //bisa berubah-ubah sesuai dengan product yang ingin dihapus
+    @FindBy(xpath = "//div[11]//div[1]//div[1]//button[1]") //bisa berubah-ubah sesuai dengan product yang ingin dihapus
     WebElementFacade buttonMoreInfo;
     public void clickButtonMoreInfo(){
        buttonMoreInfo.sendKeys(Keys.PAGE_DOWN);
        element(buttonMoreInfo).waitUntilVisible();
        buttonMoreInfo.click();
-    }
 
+    }
     //click button delete
     @FindBy(xpath = "//button[normalize-space()='Delete']")
     WebElement buttonDelete;
@@ -207,7 +243,6 @@ public class ProductPage extends PageObject {
         element(buttonDelete).waitUntilVisible();
         buttonDelete.click();
     }
-
     //konfirmasi delete product
     @FindBy(xpath = "//button[contains(text(),'Delete')]")
     WebElement buttonOKDeleteProduct;
@@ -223,6 +258,65 @@ public class ProductPage extends PageObject {
         element(PopUpMessageDelete).waitUntilVisible();
         Assert.assertEquals(message,PopUpMessageDelete.getText());
     }
+
+    //********** GET GROUP PRODUCT *************//
+
+    //click more info product yang dipilih
+    @FindBy(xpath = "//div[contains(@class,'CardContainer')]//div//div[1]//div[1]//div[1]//button[1]")
+    WebElement buttonMoreInfoGroupProduct;
+    public void clickButtonMoreInfoGroupProduct(){
+        //buttonMoreInfoGroupProduct.sendKeys(Keys.PAGE_DOWN);
+        element(buttonMoreInfoGroupProduct).waitUntilVisible();
+        buttonMoreInfoGroupProduct.click();
+    }
+    //validate redirect ke halaman group product
+    @FindBy(xpath = "//div[4]")
+    WebElementFacade GroupProduct;
+    public void validateGroupProduct(){
+        element(GroupProduct).waitUntilVisible();
+        GroupProduct.isPresent();
+    }
+
+    //********** Create group product ***************//
+
+    //pilih product yang ingin ditambahkan group product
+    @FindBy(xpath = "//div[9]//div[1]//div[1]//button[1]")
+    WebElementFacade buttonMoreInfoCreateGroupProduct;
+    public void clickButtonMoreInfoCreateGroupProduct(){
+        buttonMoreInfoCreateGroupProduct.sendKeys(Keys.PAGE_DOWN);
+        element(buttonMoreInfoCreateGroupProduct).waitUntilVisible();
+        buttonMoreInfoCreateGroupProduct.click();
+    }
+
+    //click button create new group
+    @FindBy(xpath = "//button[normalize-space()='Create New Group']")
+    WebElementFacade buttonCreateNewGroup;
+    public void clickButtonCreateNewGroup(){
+        element(buttonCreateNewGroup).waitUntilVisible();
+        buttonCreateNewGroup.click();
+    }
+    //click button create new group is disable
+    public void clickButtonCreateNewGroupDisable(){
+        element(buttonCreateNewGroup).waitUntilVisible();
+        buttonCreateNewGroup.isDisabled();
+    }
+
+    //Validate create new group Success
+    @FindBy(xpath = "//div[@class='swal-text']")
+    WebElement PopUpMessageCreateNewGroup;
+    //validate message create new group success
+    public void validateCreateNewGroupSuccess(String message){
+        element(PopUpMessageCreateNewGroup).waitUntilVisible();
+        Assert.assertEquals(message,PopUpMessageCreateNewGroup.getText());
+    }
+
+    //click button OK SETELAH POP UP add new product SUCCESS MUNCUL
+    @FindBy(xpath = "//button[normalize-space()='OK']")
+    WebElement ButtonOKCreateNewGroup;
+    public void clickButtonOKCreateNewGroup(){
+        ButtonOKCreateNewGroup.click();
+    }
+
 
 
 
