@@ -61,13 +61,13 @@
             <groupId>net.serenity-bdd</groupId>
             <artifactId>serenity-screenplay</artifactId>
             <version>${serenity.version}</version>
-            <scope>test</scope>
+<!--            <scope>test</scope>-->
         </dependency>
         <dependency>
             <groupId>net.serenity-bdd</groupId>
             <artifactId>serenity-screenplay-webdriver</artifactId>
             <version>${serenity.version}</version>
-            <scope>test</scope>
+<!--            <scope>test</scope>-->
         </dependency>
         <!-- https://mvnrepository.com/artifact/net.serenity-bdd/serenity-cucumber -->
         <dependency>
