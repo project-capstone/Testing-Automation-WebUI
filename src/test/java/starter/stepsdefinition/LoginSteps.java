@@ -88,5 +88,8 @@ public class LoginSteps extends BaseTest {
     }
 
 
-
+    @And("Show error message in field emails {string}")
+    public void showErrorMessageInFieldEmails(String message) {
+        login.validateAlertFieldEmailInvalid(message);
+    }
 }

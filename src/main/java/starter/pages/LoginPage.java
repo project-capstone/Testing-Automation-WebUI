@@ -50,11 +50,17 @@ public class LoginPage extends PageObject {
     }
 
     //validate field email
-    @FindBy(xpath ="//div[@class='modal-signin p-5 modal-body']//div//div[1]//div[1]//div[1]")
+    @FindBy(xpath ="//div[normalize-space()='cannot be blank!']")
     WebElement AlertFieldEmailEmpty;
+    @FindBy(xpath = "//div[normalize-space()='email is not valid!']")
+    WebElement AlertFieldEmailInvalid;
     public void validateAlertFieldEmailEmpty(String message){
         element(AlertFieldEmailEmpty).waitUntilVisible();
         Assert.assertEquals(message,AlertFieldEmailEmpty.getText());
+    }
+    public void validateAlertFieldEmailInvalid(String message){
+        element(AlertFieldEmailInvalid).waitUntilVisible();
+        Assert.assertEquals(message,AlertFieldEmailInvalid.getText());
     }
 
     //validate field password
