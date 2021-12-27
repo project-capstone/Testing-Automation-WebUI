@@ -2,6 +2,7 @@ package starter.pages;
 
 import net.serenitybdd.core.annotations.findby.FindBy;
 import net.serenitybdd.core.pages.PageObject;
+import net.serenitybdd.core.pages.WebElementFacade;
 import org.junit.Assert;
 import org.openqa.selenium.WebElement;
 
@@ -45,7 +46,7 @@ public class RegistrationPage extends PageObject {
     }
 
     //Input field phone
-    @FindBy(xpath = "//input[@placeholder='Phone Number']")
+    @FindBy(xpath = "//input[@placeholder='Phone Number ex: 62XXXXXXXXX']")
     WebElement FieldPhone;
     public void InputFieldPhone(String phone){
         FieldPhone.sendKeys(phone);
@@ -101,7 +102,7 @@ public class RegistrationPage extends PageObject {
     }
 
     //validate error message in field name ( empty name )
-    @FindBy(xpath = "//div[@class='modal-register p-5 modal-body']//div//div[1]//div[1]//div[1]")
+    @FindBy(xpath = "//body/div[@role='dialog']/div[@class='modal-dialog col-8 modal-dialog-centered']/div[@class='modal-content']/div[@class='modal-register p-5 modal-body']/div/div[1]/div[1]")
     WebElement AlertFieldNameEmpty;
     public void validateAlertEmptyName(String message){
         element(AlertFieldNameEmpty).waitUntilVisible();
@@ -109,7 +110,7 @@ public class RegistrationPage extends PageObject {
     }
 
     //validate error message in field email ( empty email )
-    @FindBy(xpath = "//div[@role='dialog']//div[2]//div[1]//div[1]")
+    @FindBy(xpath = "//div[@role='dialog']//div[2]//div[1]")
     WebElement AlertFieldEmailEmpty;
     public void validateAlertEmptyEmail(String message){
         element(AlertFieldEmailEmpty).waitUntilVisible();
@@ -117,7 +118,7 @@ public class RegistrationPage extends PageObject {
     }
 
     //validate error message in field password ( empty password )
-    @FindBy(xpath = "//div[@role='dialog']//div[2]//div[1]//div[1]")
+    @FindBy(xpath = "//div[@class='input-group']//div[@class='invalid-feedback'][normalize-space()='cannot be blank!']")
     WebElement AlertFieldPasswordEmpty;
     public void validateAlertEmptyPassword(String message){
         element(AlertFieldPasswordEmpty).waitUntilVisible();
@@ -125,18 +126,18 @@ public class RegistrationPage extends PageObject {
     }
 
     //validate error message in field password ( empty password )
-    @FindBy(xpath = "//div[@role='dialog']//div[2]//div[1]//div[1]")
+    @FindBy(xpath = "//div[@class='mb-3']//div[@class='invalid-feedback'][normalize-space()='cannot be blank!']")
     WebElement AlertFieldPhoneEmpty;
     public void validateAlertEmptyPhone(String message){
         element(AlertFieldPhoneEmpty).waitUntilVisible();
         Assert.assertEquals(message,AlertFieldPhoneEmpty.getText());
     }
 
-    @FindBy(xpath = "//h3[normalize-space()='SignIn']")
-    WebElement LoginPage;
+    @FindBy(xpath = "//button[normalize-space()='SignIn']")
+    WebElementFacade LoginPage;
     public void validateLoginPage(){
         element(LoginPage).waitUntilVisible();
-        Assert.assertEquals("SignIn",LoginPage.getText());
+        LoginPage.isDisplayed();
     }
 
 }
