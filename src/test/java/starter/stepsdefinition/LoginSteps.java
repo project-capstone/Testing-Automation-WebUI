@@ -56,6 +56,7 @@ public class LoginSteps extends BaseTest {
     @And("Show success message {string}")
     public void showSuccessMessage(String message) {
         login.validateLoginSuccess(message);
+        login.clickButtonOK();
     }
 
     @Then("I am failed login")
