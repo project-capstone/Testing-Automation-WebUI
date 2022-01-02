@@ -52,6 +52,7 @@ public class CreateProduct extends PageObject{
     @FindBy(xpath = "//button[normalize-space()='OK']")
     WebElement ButtonOK;
     public void clickButtonOK(){
+        element(ButtonOK).waitUntilVisible();
         ButtonOK.click();
     }
 

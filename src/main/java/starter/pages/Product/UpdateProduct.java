@@ -17,7 +17,7 @@ public class UpdateProduct extends PageObject {
     }
 
     //button more info sesuai dengan product yang dipilih
-    @FindBy(xpath = "//div[3]//div[1]//div[1]//button[1]") //bisa berubah-ubah sesuai dengan product yang ingin diupdate
+    @FindBy(xpath = "//div[contains(@class,'cardProduct')]//div[1]//div[1]//div[1]//button[1]") //bisa berubah-ubah sesuai dengan product yang ingin diupdate
     WebElementFacade buttonMoreInfo;
     public void clickButtonMoreInfo(){
         buttonMoreInfo.sendKeys(Keys.PAGE_DOWN);
@@ -29,7 +29,7 @@ public class UpdateProduct extends PageObject {
     @FindBy(xpath = "//h3[normalize-space()='Netflix']//*[name()='svg']") //link berubah-ubah sesuai name product
     WebElement buttonIconUpdateProduct;
     public void clickButtonIconUpdateProduct(){
-        //buttonIconUpdateProduct.sendKeys(Keys.PAGE_DOWN);
+        //buttonIconUpdateProduct.sendKeys(Keys.PAGE_UP);
         element(buttonIconUpdateProduct).waitUntilVisible();
         buttonIconUpdateProduct.click();
     }

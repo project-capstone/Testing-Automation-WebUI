@@ -10,7 +10,7 @@ import org.openqa.selenium.WebElement;
 public class DeleteProduct extends PageObject {
 
     //delete product yang ingin dipilih ( tidak ada group product )
-    @FindBy(xpath = "//div[10]//div[1]//div[1]//button[1]")
+    @FindBy(xpath = "//div[4]//div[1]//div[1]//button[1]")
     WebElement buttonMoreInfoProduct;
     public void clickButtonMoreInfoProduct(){
         buttonMoreInfoProduct.sendKeys(Keys.PAGE_DOWN);
@@ -42,6 +42,8 @@ public class DeleteProduct extends PageObject {
     public void clickButtonDeleteProduct(){
         buttonDeleteProduct.click();
     }
+
+    //********* VALIDASI POP UP MESSAGE ************//
 
     //Validate Delete Success
     @FindBy(xpath = "//div[@class='swal-text']")

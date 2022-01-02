@@ -3,7 +3,7 @@ Feature: Delete Product
   i want to delete product
   so that i am success delete product
 
-  #TC_3 (+) admin ingin menghapus produk
+  @test #TC_3 (+) admin ingin menghapus produk //tentukan element yang ingin dihapus
   Scenario: admin want to delete product
     Given I am logged as admin
     When I am click button more info on product unexist group product

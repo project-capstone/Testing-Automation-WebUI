@@ -16,7 +16,7 @@ Feature: Create Product
     When I am click menu dropdown icon profile
     Then menu add product not exist
 
-  #TC_3 #admin ingin menambahkan product baru
+  @test #TC_3 #admin ingin menambahkan product baru
   Scenario: admin want to create new product
     Given I am logged as admin
       And I am already in add new product page
@@ -33,12 +33,12 @@ Feature: Create Product
   Scenario: admin want to post new product without fill any data
     Given I am logged as admin
     When I am already in add new product page
-    And I am click button add products
+      And I am click button add products
     Then I am failed add products
-    And Show error message in field price detail "cannot be blank!"
-    And Show error message in field product picture "cannot be blank!"
-    And Show error message in field product name "cannot be blank!"
-    And Show error message in field product detail "cannot be blank!"
-    And Show error message in field limit "cannot be blank!"
+      And Show error message in field price detail "cannot be blank!"
+      And Show error message in field product picture "cannot be blank!"
+      And Show error message in field product name "cannot be blank!"
+      And Show error message in field product detail "cannot be blank!"
+      And Show error message in field limit "cannot be blank!"
 
     #kurang validasi create product isi capacity kurang dari 1

@@ -3,7 +3,7 @@ Feature: Login Functionality
   I want to be able to Login in barengin.site
   So that I am success Login
 
-  #TC_1
+  @test #TC_1
   Scenario: I am login with valid email and password
     Given I am open login page in barengin
     When I am enter valid email "wahyu@gmail.com"
@@ -98,7 +98,7 @@ Feature: Login Functionality
       | Pass     |
       | passs    |
 
-  @test #TC_10
+  #TC_10
   Scenario Outline: I am login with invalid format email and password
     Given I am open login page in barengin
     When I am enter invalid email "<email>"

@@ -2,6 +2,7 @@ package starter.pages;
 
 import net.serenitybdd.core.annotations.findby.FindBy;
 import net.serenitybdd.core.pages.PageObject;
+import net.serenitybdd.core.pages.WebElementFacade;
 import org.junit.Assert;
 import org.openqa.selenium.WebElement;
 
@@ -37,7 +38,7 @@ public class LoginPage extends PageObject {
 
     //Click Button SignIn
     @FindBy(xpath = "//button[normalize-space()='SignIn']")
-    WebElement ButtonSignIn;
+    WebElementFacade ButtonSignIn;
     public void clickButtonSignIn(){
         ButtonSignIn.click();
     }
@@ -83,6 +84,14 @@ public class LoginPage extends PageObject {
     public void validateLoginFailed(String message){
         element(PopUpMessageLogin).waitUntilVisible();
         Assert.assertEquals(message,PopUpMessageLogin.getText());
+    }
+
+    //click button OK
+    @FindBy(xpath = "//button[normalize-space()='OK']")
+    WebElement ButtonOK;
+    public void clickButtonOK(){
+        element(ButtonOK).waitUntilVisible();
+        ButtonOK.click();
     }
 
 

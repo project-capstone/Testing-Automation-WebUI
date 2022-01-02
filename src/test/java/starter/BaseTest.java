@@ -5,6 +5,7 @@ import starter.pages.GroupProduct.DeleteGroupProduct;
 import starter.pages.GroupProduct.UpdateGroupProduct;
 import starter.pages.LoginPage;
 import starter.pages.LogoutPage;
+import starter.pages.Order.CreateOrder;
 import starter.pages.Product.CreateProduct;
 import starter.pages.Product.DeleteProduct;
 import starter.pages.Product.UpdateProduct;
@@ -20,4 +21,5 @@ public class BaseTest {
     public CreateGroupProduct creategroupproduct = new CreateGroupProduct();
     public DeleteGroupProduct deletegroupproduct = new DeleteGroupProduct();
     public UpdateGroupProduct updategroupproduct = new UpdateGroupProduct();
+    public CreateOrder createorder = new CreateOrder();
 }
